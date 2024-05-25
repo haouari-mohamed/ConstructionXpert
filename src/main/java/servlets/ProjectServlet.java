@@ -1,160 +1,131 @@
 package servlets;
 
-import dao.ProjectDao;
-import dao.ProjectDaoImp;
+import dao.ProjectDAO;
 import model.Project;
 
-import javax.servlet.*;
-import javax.servlet.http.*;
-import javax.servlet.annotation.*;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.sql.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
-@WebServlet(name = "ProjectServlet", value = "/ProjectServlet")
+@WebServlet("/ProjectServlet")
 public class ProjectServlet extends HttpServlet {
-    private static final String ACTION_GET_ALL_PROJECTS = "getAllProjects";
-    private static final String ACTION_DELETE_PROJECT = "deleteProject";
-    private static final String ACTION_EDIT_PROJECT = "editProject";
-    private static final String ACTION_ADD_PROJECT = "addProject";
-    private static final String ACTION_SHOW_EDIT_PROJECT_FORM = "showEditProjectForm";
-    private static final String ACTION_SHOW_ADD_PROJECT_FORM = "showAddProjectForm";
-
-    private ProjectDao projectDao;
-
-    public ProjectServlet() {
-        super();
-        projectDao = new ProjectDaoImp();
-    }
+    private ProjectDAO projectDAO;
 
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String action = request.getParameter("action");
-
-        switch (action) {
-            case ACTION_GET_ALL_PROJECTS:
-                getAllProjects(request, response);
-                break;
-            case ACTION_DELETE_PROJECT:
-                deleteProject(request, response);
-                break;
-            case ACTION_SHOW_EDIT_PROJECT_FORM:
-                showEditProjectForm(request, response);
-                break;
-            case ACTION_SHOW_ADD_PROJECT_FORM:
-                showAddProjectForm(request, response);
-                break;
-            default:
-                response.sendError(HttpServletResponse.SC_BAD_REQUEST, "Unknown action");
-                break;
+    public void init() throws ServletException {
+        try {
+            projectDAO = new ProjectDAO();
+        } catch (RuntimeException e) {
+            throw new ServletException("Cannot initialize ProjectDAO", e);
         }
     }
 
-    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = request.getParameter("action");
+        if (action.equals("create")) {
+            createProject(request, response);
+        } else if (action.equals("update")) {
+            updateProject(request, response);
+        }
+    }
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String action = request.getParameter("action");
+        if (action == null) {
+            action = "list";
+        }
 
         switch (action) {
-            case ACTION_EDIT_PROJECT:
-                editProject(request, response);
+            case "list":
+                listProjects(request, response);
                 break;
-            case ACTION_ADD_PROJECT:
-                addProject(request, response);
+            case "edit":
+                showEditForm(request, response);
+                break;
+            case "delete":
+                deleteProject(request, response);
+                break;
+            case "new":
+                showNewForm(request, response);
                 break;
             default:
-                doGet(request, response);
+                listProjects(request, response);
                 break;
         }
     }
 
-    private void getAllProjects(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        List<Project> projects = projectDao.getAll();
-        request.setAttribute("projects", projects);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("project-list.jsp");
-        dispatcher.forward(request, response);
+
+    private void listProjects(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        List<Project> projectList = projectDAO.getAllProjects();
+        request.setAttribute("projectList", projectList);
+        request.getRequestDispatcher("project-list.jsp").forward(request, response);
     }
 
-    private void deleteProject(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        int projectId = Integer.parseInt(request.getParameter("projectId"));
-        Project project = projectDao.get(projectId);
-        if (project != null) {
-            projectDao.delete(project);
-        }
-        response.sendRedirect("ProjectServlet?action=" + ACTION_GET_ALL_PROJECTS);
+    private void showNewForm(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.getRequestDispatcher("project-form.jsp").forward(request, response);
     }
-    private void showEditProjectForm(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        int projectId = Integer.parseInt(request.getParameter("projectId"));
-        Project existingProject = projectDao.get(projectId);
+
+    private void showEditForm(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        int id = Integer.parseInt(request.getParameter("id"));
+        Project existingProject = projectDAO.getProjectById(id);
         request.setAttribute("project", existingProject);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("project-form.jsp");
-        dispatcher.forward(request, response);
+        request.getRequestDispatcher("project-form.jsp").forward(request, response);
     }
 
-    private void editProject(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        int projectId = Integer.parseInt(request.getParameter("projectId"));
-        String projectName = request.getParameter("projectName");
+    private void createProject(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String name = request.getParameter("name");
         String description = request.getParameter("description");
+        String startDateStr = request.getParameter("startDate");
+        String endDateStr = request.getParameter("endDate");
+        double budget = Double.parseDouble(request.getParameter("budget"));
 
-        Date startDate;
-        Date endDate;
+        Date startDate = null;
+        Date endDate = null;
         try {
-            startDate = Date.valueOf(request.getParameter("startDate"));
-            endDate = Date.valueOf(request.getParameter("endDate"));
-        } catch (IllegalArgumentException e) {
-            request.setAttribute("error", "Invalid date format.");
-            showEditProjectForm(request, response);
-            return;
+            startDate = new SimpleDateFormat("yyyy-MM-dd").parse(startDateStr);
+            endDate = new SimpleDateFormat("yyyy-MM-dd").parse(endDateStr);
+        } catch (ParseException e) {
+            e.printStackTrace();
         }
 
-        double budget;
-        try {
-            budget = Double.parseDouble(request.getParameter("budget"));
-        } catch (NumberFormatException e) {
-            request.setAttribute("error", "Invalid budget format.");
-            showEditProjectForm(request, response);
-            return;
-        }
-
-        Project project = new Project(projectName, description, startDate, endDate, budget);
-        project.setProjectId(projectId);
-
-        projectDao.update(project);
-
-        response.sendRedirect("ProjectServlet?action=" + ACTION_GET_ALL_PROJECTS);
+        Project newProject = new Project(name, description, startDate, endDate, budget);
+        projectDAO.addProject(newProject);
+        response.sendRedirect("ProjectServlet?action=list");
     }
 
-    private void showAddProjectForm(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        RequestDispatcher dispatcher = request.getRequestDispatcher("project-form.jsp");
-        dispatcher.forward(request, response);
-    }
-
-    private void addProject(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String projectName = request.getParameter("projectName");
+    private void updateProject(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        int id = Integer.parseInt(request.getParameter("id"));
+        String name = request.getParameter("name");
         String description = request.getParameter("description");
+        String startDateStr = request.getParameter("startDate");
+        String endDateStr = request.getParameter("endDate");
+        double budget = Double.parseDouble(request.getParameter("budget"));
 
-        Date startDate;
-        Date endDate;
+        Date startDate = null;
+        Date endDate = null;
         try {
-            startDate = Date.valueOf(request.getParameter("startDate"));
-            endDate = Date.valueOf(request.getParameter("endDate"));
-        } catch (IllegalArgumentException e) {
-            request.setAttribute("error", "Invalid date format.");
-            showAddProjectForm(request, response);
-            return;
+            startDate = new SimpleDateFormat("yyyy-MM-dd").parse(startDateStr);
+            endDate = new SimpleDateFormat("yyyy-MM-dd").parse(endDateStr);
+        } catch (ParseException e) {
+            e.printStackTrace();
         }
 
-        double budget;
-        try {
-            budget = Double.parseDouble(request.getParameter("budget"));
-        } catch (NumberFormatException e) {
-            request.setAttribute("error", "Invalid budget format.");
-            showAddProjectForm(request, response);
-            return;
-        }
+        Project project = new Project(name, description, startDate, endDate, budget);
+        project.setId(id);
+        projectDAO.updateProject(project);
+        response.sendRedirect("ProjectServlet?action=list");
+    }
 
-        Project newProject = new Project(projectName, description, startDate, endDate, budget);
-        projectDao.create(newProject);
-
-        response.sendRedirect("ProjectServlet?action=" + ACTION_GET_ALL_PROJECTS);
+    private void deleteProject(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        int id = Integer.parseInt(request.getParameter("id"));
+        projectDAO.deleteProject(id);
+        response.sendRedirect("ProjectServlet?action=list");
     }
 }

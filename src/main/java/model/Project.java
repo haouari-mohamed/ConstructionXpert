@@ -1,71 +1,43 @@
+
 package model;
 
-import java.sql.Date;
+import java.util.Date;
 
 public class Project {
-    private int projectId;
-    private String projectName;
+    private int id;
+    private String name;
     private String description;
     private Date startDate;
     private Date endDate;
     private double budget;
 
-    public Project() {
-    }
 
-    public Project(String projectName, String description, Date startDate, Date endDate, double budget) {
-        this.projectName = projectName;
+    public Project() {}
+
+    public Project(String name, String description, Date startDate, Date endDate, double budget) {
+        this.name = name;
         this.description = description;
         this.startDate = startDate;
         this.endDate = endDate;
         this.budget = budget;
     }
 
-    public int getProjectId() {
-        return projectId;
-    }
 
-    public void setProjectId(int projectId) {
-        this.projectId = projectId;
-    }
+    public int getId() { return id; }
+    public void setId(int id) { this.id = id; }
 
-    public String getProjectName() {
-        return projectName;
-    }
+    public String getName() { return name; }
+    public void setName(String name) { this.name = name; }
 
-    public void setProjectName(String projectName) {
-        this.projectName = projectName;
-    }
+    public String getDescription() { return description; }
+    public void setDescription(String description) { this.description = description; }
 
-    public String getDescription() {
-        return description;
-    }
+    public Date getStartDate() { return startDate; }
+    public void setStartDate(Date startDate) { this.startDate = startDate; }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
+    public Date getEndDate() { return endDate; }
+    public void setEndDate(Date endDate) { this.endDate = endDate; }
 
-    public Date getStartDate() {
-        return startDate;
-    }
-
-    public void setStartDate(Date startDate) {
-        this.startDate = startDate;
-    }
-
-    public Date getEndDate() {
-        return endDate;
-    }
-
-    public void setEndDate(Date endDate) {
-        this.endDate = endDate;
-    }
-
-    public double getBudget() {
-        return budget;
-    }
-
-    public void setBudget(double budget) {
-        this.budget = budget;
-    }
+    public double getBudget() { return budget; }
+    public void setBudget(double budget) { this.budget = budget; }
 }

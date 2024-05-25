@@ -1,58 +1,33 @@
 package model;
 
-import java.sql.Date;
+import java.util.Date;
 
 public class Task {
-    private int taskId;
-    private Project project;
-    private String taskName;
+    private int id;
     private String description;
     private Date startDate;
     private Date endDate;
-    private Status status;
+    private String status;
+    private int projectId;
 
-    public Task() {
-    }
 
-    public Task(String taskName, String description, Date startDate, Date endDate, Status status) {
-        this.taskName = taskName;
+    public Task() {}
+
+    public Task(String description, Date startDate, Date endDate, String status, int projectId) {
         this.description = description;
         this.startDate = startDate;
         this.endDate = endDate;
         this.status = status;
+        this.projectId = projectId;
     }
 
-    public Task(int taskId, String taskName, String description, Date startDate, Date endDate, Status status) {
-        this.taskId = taskId;
-        this.taskName = taskName;
-        this.description = description;
-        this.startDate = startDate;
-        this.endDate = endDate;
-        this.status = status;
+
+    public int getId() {
+        return id;
     }
 
-    public int getTaskId() {
-        return taskId;
-    }
-
-    public void setTaskId(int taskId) {
-        this.taskId = taskId;
-    }
-
-    public Project getProject() {
-        return project;
-    }
-
-    public void setProject(Project project) {
-        this.project = project;
-    }
-
-    public String getTaskName() {
-        return taskName;
-    }
-
-    public void setTaskName(String taskName) {
-        this.taskName = taskName;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getDescription() {
@@ -79,14 +54,19 @@ public class Task {
         this.endDate = endDate;
     }
 
-    public Status getStatus() {
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(Status status) {
+    public void setStatus(String status) {
         this.status = status;
     }
-    public enum Status {
-        NOT_STARTED, IN_PROGRESS, COMPLETED
+
+    public int getProjectId() {
+        return projectId;
+    }
+
+    public void setProjectId(int projectId) {
+        this.projectId = projectId;
     }
 }
