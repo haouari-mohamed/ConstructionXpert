@@ -8,8 +8,9 @@
     <style><%@include file="CSS/project-list.css"%></style>
 </head>
 <body>
+
 <div class="container">
-    <h1 class="mt-5">Liste des Ressources</h1>
+    <h1 class="mt-4">Liste des Ressources</h1>
     <button class="btn btn-primary mb-3" data-toggle="modal" data-target="#resourceModal" onclick="resetForm()">Créer une Nouvelle Ressource</button>
     <div class="row">
         <c:forEach var="resource" items="${resourceList}">
@@ -22,8 +23,8 @@
                             <strong>Type:</strong> ${resource.type}<br>
                             <strong>Quantité:</strong> ${resource.quantity}
                         </p>
-                        <button class="btn btn-warning mr-2" data-toggle="modal" data-target="#resourceModal" onclick="populateForm(${resource.id}, '${resource.name}', '${resource.type}', ${resource.quantity})">Modifier</button>
-                        <a href="ResourceServlet?action=delete&id=${resource.id}&taskId=${taskId}" class="btn btn-danger mr-2">Supprimer</a>
+                        <button class="btn btn-warning mr-2" data-toggle="modal" data-target="#resourceModal" onclick="populateForm(${resource.id}, '${resource.name}', '${resource.type}', ${resource.quantity})">Edit</button>
+                        <a href="ResourceServlet?action=delete&id=${resource.id}&taskId=${taskId}" class="btn btn-danger mr-2">Delete</a>
                     </div>
                 </div>
             </div>
@@ -31,7 +32,7 @@
     </div>
 </div>
 
-<!-- Resource Modal -->
+
 <div class="modal fade" id="resourceModal" tabindex="-1" role="dialog" aria-labelledby="resourceModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">

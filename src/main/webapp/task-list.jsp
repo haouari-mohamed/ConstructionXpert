@@ -8,8 +8,9 @@
     <style><%@include file="CSS/project-list.css"%></style>
 </head>
 <body>
+
 <div class="container">
-    <h1 class="mt-5">Liste des Tâches</h1>
+    <h1 class="mt-5 text=white">Liste des Tâches</h1>
     <button class="btn btn-primary mb-3" data-toggle="modal" data-target="#taskModal" onclick="resetForm()">Créer une Nouvelle Tâche</button>
     <div class="row">
         <c:forEach var="task" items="${taskList}">
@@ -23,9 +24,9 @@
                             <strong>Date de Fin:</strong> ${task.endDate}<br>
                             <strong>Statut:</strong> ${task.status}
                         </p>
-                        <button class="btn btn-warning mr-2" data-toggle="modal" data-target="#taskModal" onclick="populateForm(${task.id}, '${task.description}', '${task.startDate}', '${task.endDate}', '${task.status}')">Modifier</button>
-                        <a href="TaskServlet?action=delete&id=${task.id}&projectId=${projectId}" class="btn btn-danger mr-2">Supprimer</a>
-                        <a href="ResourceServlet?action=list&taskId=${task.id}" class="btn btn-info">Gérer les Ressources</a>
+                        <button class="btn btn-warning mr-2" data-toggle="modal" data-target="#taskModal" onclick="populateForm(${task.id}, '${task.description}', '${task.startDate}', '${task.endDate}', '${task.status}')">Edit</button>
+                        <a href="TaskServlet?action=delete&id=${task.id}&projectId=${projectId}" class="btn btn-danger mr-2">Delete</a>
+                        <a href="ResourceServlet?action=list&taskId=${task.id}" class="btn btn-info">Manage Reso</a>
                     </div>
                 </div>
             </div>

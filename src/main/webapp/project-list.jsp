@@ -11,10 +11,10 @@
     <style><%@include file="CSS/project-list.css"%></style>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar  navbar-light  ">
     <a class="navbar-brand" href="#">
-        <img src="https://i.ibb.co/QNyXFY5/images.png">
-        Admin Name
+        <img src="https://www.pngall.com/wp-content/uploads/2/C-Letter-PNG-Free-Image.png" alt="" style="height: 40px;">
+        Construction Mangement
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -25,41 +25,39 @@
                 <a class="nav-link active" href="project-list.jsp">Projects</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="task-list.jsp">Tasks</a>
+                <a class="nav-link" href="task-list.jsp">Help </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="resource-list.jsp">Resources</a>
+                <a class="nav-link" href="resource-list.jsp">Log out</a>
             </li>
         </ul>
     </div>
 </nav>
-<div class="container">
-    <div class="header">
-        <h1>Admin Dashboard</h1>
-    </div>
-    <button class="btn btn-primary btn-create" data-toggle="modal" data-target="#projectModal" onclick="resetForm()">Create New Project</button>
-    <div class="row">
-        <c:forEach var="project" items="${projectList}">
-            <div class="col-md-4 mb-4">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">${project.name}</h5>
-                        <p class="card-text">
-                            <strong>Description:</strong> ${project.description}<br>
-                            <strong>Start Date:</strong> ${project.startDate}<br>
-                            <strong>End Date:</strong> ${project.endDate}<br>
-                            <strong>Budget:</strong> ${project.budget}
-                        </p>
-                        <div class="card-buttons">
-                            <button class="btn btn-warning mr-2" data-toggle="modal" data-target="#projectModal" onclick="populateForm(${project.id}, '${project.name}', '${project.description}', '${project.startDate}', '${project.endDate}', ${project.budget})">Edit</button>
-                            <a href="ProjectServlet?action=delete&id=${project.id}" class="btn btn-danger mr-2">Delete</a>
-                            <a href="TaskServlet?action=list&projectId=${project.id}" class="btn btn-info">Manage Tasks</a>
-                        </div>
+
+<br>
+<button class="btn btn-primary btn-create" data-toggle="modal" data-target="#projectModal" onclick="resetForm()">Create New Project</button>
+<div class="row">
+    <c:forEach var="project" items="${projectList}">
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">${project.name}</h5>
+                    <p class="card-text">
+                        <strong>Description:</strong> ${project.description}<br>
+                        <strong>Start Date:</strong> ${project.startDate}<br>
+                        <strong>End Date:</strong> ${project.endDate}<br>
+                        <strong>Budget:</strong> ${project.budget}
+                    </p>
+                    <div class="card-buttons">
+                        <button class="btn btn-warning mr-2" data-toggle="modal" data-target="#projectModal" onclick="populateForm(${project.id}, '${project.name}', '${project.description}', '${project.startDate}', '${project.endDate}', ${project.budget})">Edit</button>
+                        <a href="ProjectServlet?action=delete&id=${project.id}" class="btn btn-danger mr-2">Delete</a>
+                        <a href="TaskServlet?action=list&projectId=${project.id}" class="btn btn-info">Manage Tasks</a>
                     </div>
                 </div>
             </div>
-        </c:forEach>
-    </div>
+        </div>
+    </c:forEach>
+</div>
 </div>
 
 <!-- Project Modal -->

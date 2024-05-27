@@ -10,13 +10,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b9f25fd7-8fdc-430f-be3b-04a94fc10421" name="Changes" comment="update the whole project cause i lost most of files in the last commit">
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/CSS/project-list.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/project-form.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/project-form.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/CSS/project-list.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/CSS/project-list.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/images.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/images.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/project-list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/project-list.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resource-form.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resource-form.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/resource-list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resource-list.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/task-form.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/task-form.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/task-list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/task-list.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -64,35 +62,35 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "Tomcat Server.Tomcat 8.5.100.executor": "Run",
-    "Tomcat Server.Tomcat 9.0.86.executor": "Run",
-    "Tomcat Server.Tomcat 9.0.87.executor": "Run",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/user/Desktop/worked version/ConstructionXpert/src/main/webapp/WEB-INF/CSS",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Artifacts",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;Tomcat Server.Tomcat 8.5.100.executor&quot;: &quot;Run&quot;,
+    &quot;Tomcat Server.Tomcat 9.0.86.executor&quot;: &quot;Run&quot;,
+    &quot;Tomcat Server.Tomcat 9.0.87.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/user/Desktop/worked version/ConstructionXpert/src/main/webapp/WEB-INF/CSS&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="servlets" />
@@ -219,6 +217,7 @@
       <workItem from="1716648459712" duration="360000" />
       <workItem from="1716739470318" duration="1076000" />
       <workItem from="1716740573765" duration="990000" />
+      <workItem from="1716796962994" duration="7371000" />
     </task>
     <task id="LOCAL-00001" summary="update the whole project cause i lost most of files in the last commit">
       <option name="closed" value="true" />
