@@ -14,7 +14,7 @@
 <nav class="navbar  navbar-light  ">
     <a class="navbar-brand" href="#">
         <img src="https://www.pngall.com/wp-content/uploads/2/C-Letter-PNG-Free-Image.png" alt="" style="height: 40px;">
-        Construction Mangement
+        onstruction Mangement
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>

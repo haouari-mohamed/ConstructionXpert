@@ -9,10 +9,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b9f25fd7-8fdc-430f-be3b-04a94fc10421" name="Changes" comment="update the whole project cause i lost most of files in the last commit">
+    <list default="true" id="b9f25fd7-8fdc-430f-be3b-04a94fc10421" name="Changes" comment="update the style and make it resposive">
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/menu.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/CSS/project-list.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/CSS/project-list.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/images.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/images.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/project-list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/project-list.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/resource-list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resource-list.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/task-list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/task-list.jsp" afterDir="false" />
@@ -217,7 +217,7 @@
       <workItem from="1716648459712" duration="360000" />
       <workItem from="1716739470318" duration="1076000" />
       <workItem from="1716740573765" duration="990000" />
-      <workItem from="1716796962994" duration="7371000" />
+      <workItem from="1716796962994" duration="9502000" />
     </task>
     <task id="LOCAL-00001" summary="update the whole project cause i lost most of files in the last commit">
       <option name="closed" value="true" />
@@ -227,7 +227,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716741141383</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="update in the ressource jsp also do some modifcation in my css to impprove the interface">
+      <option name="closed" value="true" />
+      <created>1716804869426</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1716804869426</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -235,7 +243,9 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="update the whole project cause i lost most of files in the last commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="update the whole project cause i lost most of files in the last commit" />
+    <MESSAGE value="update in the ressource jsp also do some modifcation in my css to impprove the interface" />
+    <MESSAGE value="update the style and make it resposive" />
+    <option name="LAST_COMMIT_MESSAGE" value="update the style and make it resposive" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

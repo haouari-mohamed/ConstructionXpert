@@ -8,6 +8,29 @@
     <style><%@include file="CSS/project-list.css"%></style>
 </head>
 <body>
+<nav class="navbar  navbar-light  ">
+    <a class="navbar-brand" href="#">
+        <img src="https://www.pngall.com/wp-content/uploads/2/C-Letter-PNG-Free-Image.png" alt="" style="height: 40px;">
+        onstruction Mangement
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link active" href="project-list.jsp">Projects</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="task-list.jsp">Help </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="resource-list.jsp">Log out</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
 
 <div class="container">
     <h1 class="mt-4">Liste des Ressources</h1>

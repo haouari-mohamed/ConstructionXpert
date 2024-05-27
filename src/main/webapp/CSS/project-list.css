@@ -142,9 +142,15 @@ body {
 }
 .navbar{
     background-color: #fefefe65;
+    padding: 0;
 }
 .row{
     margin-left: 0;
     margin-right: 0;
 }
-
+.container, .container-lg, .container-md, .container-sm, .container-xl {
+    max-width: 100%;
+}
+.container{
+    padding:0;
+}
